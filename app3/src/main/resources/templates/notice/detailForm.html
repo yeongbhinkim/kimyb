@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>공지사항 상세</title>
+  <link rel="stylesheet" href="../css/notice/common.css" th:href="@{/css/notice/common.css}">
+
+</head>
+<body>
+  <div class="wrap">
+    <div class="content">
+      <h3>공지사항 상세</h3>
+      <hr>
+      <form th:method="delete" th:object="${detailForm}" th:data-notice-Id="*{noticeId}">
+        <input type="hidden" th:field="*{noticeId}">
+<!--        <input type="hidden" id="noticeId" name="noticeId" value="xxx">-->
+<!--      <form th:object="${detailForm}" th:data-noticeid="*{noticeId}">        밑쪽에 주석처리 한 것처럼 해도 됨-->
+
+        <ul>
+          <li>
+            <span>작성자</span>
+            <input type="text" readonly="readonly" th:field="*{author}">
+          </li>
+          <li>
+            <span>@제목</span>
+            <input type="text" readonly="readonly" th:field="*{subject}">
+          </li>
+          <li>
+            <span>@내용</span>
+            <textarea cols="30" rows="10" readonly="readonly" th:field="*{content}"></textarea>
+          </li>
+          <li>
+            <button type="button" id="editBtn">수정</button>
+            <button type="button" id="delBtn">삭제</button>
+            <button type="button" id="listBtn">목록</button>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </div>
+  <script>
+    const $editBtn = document.getElementById('editBtn');
+    const $delBtn  = document.getElementById('delBtn');
+    const $listBtn = document.getElementById('listBtn');
+
+    $editBtn.addEventListener('click', e => {
+      const noticeId = e.target.closest('form').dataset.noticeId;
+      const url = `/notices/${noticeId}`;
+      location.href = url;
+      });
+
+    $delBtn.addEventListener('click', e => {
+      if(!confirm('삭제하시겠습니까?')) return;
+
+      const $form = e.target.closest('form');
+      const noticeId = $form.dataset.noticeId;
+      $form.action = `/notices/${noticeId}`;
+      $form.submit();
+<!--      location.href = url;-->
+    });
+    $listBtn.addEventListener('click', () => {
+      const url = `/notices/all`;
+      location.href = url;
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>커피숍 정보 등록</title>
+  <link rel="stylesheet" href="../css/info1.css">
+</head>
+<body>
+  <header>
+    <div class="header_top_wrap">
+      <div class="header_logo_home_evt">
+        <a class="logo" href="#" title="로고 이미지">로고</a>
+      </div>
+      <div class="header_util_evt">
+        <a href="javascript:void(0)">Log out</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="body-wrap">
+    <aside class="page-aside-wrap">
+      <div class="aside-menu-tab">
+        <div class="aside-title">
+          <a href="javascript:void(0)">
+            <span>마이페이지</span>
+          </a>
+        </div>
+        <nav class="nav-tab">
+          <ul class="nav-list-wrap">
+            <li class="nav-list-each my-history " >
+              <a href="javascript:void(0)" class="my-history">나의 활동 내역</a>
+              <ul>
+                <li>
+                  <a href="javascript:void(0)">- 내가 작성한 리뷰</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">- 내가 찜한 커피숍</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-list-each">
+              <a href="javascript:void(0)">커피숍 정보 관리</a>
+              <ul>
+                <li>
+                    <a href="javascript:void(0)">- 커피숍 정보 등록 요청하기</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">- 커피숍 정보 수정 요청하기</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">- 커피숍 정보 삭제 요청하기</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-list-each">
+              <a href="javascript:void(0)">관리자 메뉴</a>
+              <ul class="admin-tab">
+                <li>
+                  <a href="javascript:void(0)">- 커피숍 정보관리 </a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">- 리뷰 신고 관리</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">- 공지사항 관리</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">- 게시판 관리</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="page-main-wrap">
+      <div class="main-sub">
+        <div class="main-nav-title">
+          <span>커피숍 정보 등록 요청하기</span>
+        </div>
+      </div>
+      
+      <div>
+        <div class="content">
+          <table>
+            <th color="blue" align ="center" colspan = "2">커피숍 등록 양식</th>
+              <tr>
+                  <td class="box1">
+                    커피숍 명
+                  </td>
+                  <td class="box2">
+                    <input type="text" placeholder="커피숍 명을 입력해주세요"></p>
+                  </td>
+              </tr>
+              <tr>
+                  <td class="box1">
+                    커피숍 전화번호
+                  </td>
+                  <td class="box2">
+                    <select name="number">
+                      <option value="1" selected>02</option>
+                      <option value="2">051</option>
+                      <option value="3">052</option>
+                      <option value="3">053</option>
+                    </select>
+                    <input type="text" placeholder="- 빼고 입력해주세요"></p>
+                  </td>
+              </tr>
+              <tr>
+                <td class="box1">
+                  커피숍 주소
+                </td>
+                <td class="box2">
+                    <input type="text" name="dong" id="dong" size="5">-
+                    <input type="text" name="dong" id="dong" size="5">
+                    <input type="button" id="address" value="우편번호검색"><br>
+                    <input type="text" name="home" id="home" size="60" placeholder="커피숍 주소를 입력해주세요"> <br>
+                    <input type="text" name="homeAddress" id="homeAddress" size="60" placeholder="상세 주소를 입력해주세요">   
+                </td>
+              </tr>
+              <tr>
+                  <td class="box1">
+                    사업자 등록증
+                  </td>
+                  <td class="box2">
+                    <input type="text" placeholder="등록번호를 입력하세요">
+                    <input type="button" id="등록증" value="조회"></p>
+                    <div id="image_container"></div> 
+                    <input type="file" id="image" accept="image/*" onchange="setThumbnail(event);"/> 
+                  </td>
+              </tr>
+              <tr>
+                  <td class="box1">
+                    사진 첨부
+                  </td>
+                  <td class="box2">
+                    <div id='image_preview'>
+                      <div id='att_zone'
+                      data-placeholder=''></div>
+                      <input type='file' id='btnAtt' multiple='multiple' />
+                    </div>
+                  </td>
+              </tr>
+              <tr>
+                  <td class="box1">
+                    해시태그
+                  </td>
+                  <td class="box2">
+                    <input type="text" >
+                    <input type="text" ><br>
+                    <input type="text" >
+                    <input type="text" ><br>
+                    8자 미만으로 최대 4개까지 입력가능
+                  </td>
+              </tr>
+              <tr>
+                  <td class="box1">
+                    요구사항
+                  </td>
+                  <td class="box2">
+                    <textarea cols="60" rows="10" th:field="*{content}"></textarea>
+                  </td>
+              </tr>
+          </table>
+          </div>
+          <div class="Btn">
+            <input type="button" id="save" value="임시저장">
+            <input type="button" id="add" value="등록">
+            <input type="button" id="cancel" value="취소">
+          </div>
+        </div>
+      <script>
+        // 등록증 사본 파일 미리보기
+          function setThumbnail(event) { 
+            var reader = new FileReader(); 
+            reader.onload = function(event) { 
+            var img = document.createElement("img"); 
+            img.setAttribute("src", event.target.result); 
+            document.querySelector("div#image_container").appendChild(img); }; 
+            reader.readAsDataURL(event.target.files[0]); } 
+      
+      
+        // 카페 사진 미리보기
+        ( /* att_zone : 이미지들이 들어갈 위치 id, btn : file tag id */
+          imageView = function imageView(att_zone, btn){
+        
+            var attZone = document.getElementById(att_zone);
+            var btnAtt = document.getElementById(btn)
+            var sel_files = [];
+            
+            // 이미지와 체크 박스를 감싸고 있는 div 속성
+            var div_style = 'display:inline-block;position:relative;'
+                          + 'width:150px;height:120px;margin:5px;z-index:1';
+            // 미리보기 이미지 속성
+            var img_style = 'width:100%;height:100%;z-index:none';
+            // 이미지안에 표시되는 체크박스의 속성
+            var chk_style = 'width:30px;height:30px;position:absolute;font-size:24px;'
+                          + 'right:0px;top:0px;z-index:999;background-color:rgba(255,255,255,0.1);color:';
+          
+            btnAtt.onchange = function(e){
+              var files = e.target.files;
+              var fileArr = Array.prototype.slice.call(files)
+              for(f of fileArr){
+                imageLoader(f);
+              }
+            }  
+      
+            /*첨부된 이미리즐을 배열에 넣고 미리보기 */
+            imageLoader = function(file){
+              sel_files.push(file);
+              var reader = new FileReader();
+              reader.onload = function(ee){
+                let img = document.createElement('img')
+                img.setAttribute('style', img_style)
+                img.src = ee.target.result;
+                attZone.appendChild(makeDiv(img, file));
+              }
+              
+              reader.readAsDataURL(file);
+            }
+            
+            /*첨부된 파일이 있는 경우 checkbox와 함께 attZone에 추가할 div를 만들어 반환 */
+            makeDiv = function(img, file){
+              var div = document.createElement('div')
+              div.setAttribute('style', div_style)
+              
+              var btn = document.createElement('input')
+              btn.setAttribute('type', 'button')
+              btn.setAttribute('value', 'x')
+              btn.setAttribute('delFile', file.name);
+              btn.setAttribute('style', chk_style);
+              btn.onclick = function(ev){
+                var ele = ev.srcElement;
+                var delFile = ele.getAttribute('delFile');
+                for(var i=0 ;i<sel_files.length; i++){
+                  if(delFile== sel_files[i].name){
+                    sel_files.splice(i, 1);      
+                  }
+                }
+                
+                dt = new DataTransfer();
+                for(f in sel_files) {
+                  var file = sel_files[f];
+                  dt.items.add(file);
+                }
+                btnAtt.files = dt.files;
+                var p = ele.parentNode;
+                attZone.removeChild(p)
+              }
+              div.appendChild(img)
+              div.appendChild(btn)
+              return div
+            }
+            $(function() {
+                        $('.cvf_uploaded_files').createElement({
+                            cursor: 'move',
+                            placeholder: 'highlight',
+                            start: function (event, ui) {
+                                ui.item.toggleClass('highlight');
+                            },
+                            stop: function (event, ui) {
+                                ui.item.toggleClass('highlight');
+                            },
+                            update: function () {
+                                
+                                cvf_reload_order();
+                                // cvf_add_order();
+                            },
+                            create:function(){
+                                var list = this;
+                                resize = function(){
+                                    $(list).css('height','auto');
+                                    $(list).height($(list).height());
+                                };
+                                $(list).height($(list).height());
+                                $(list).find('img').load(resize).error(resize);
+                            }
+                        });
+                        console.log(storedFiles);
+                        $('.cvf_uploaded_files').disableSelection();
+                    });
+          }
+        )('att_zone', 'btnAtt')
+        
+        
+      </script>
+      
+    </main> 
+
+  </div>
+</body>
+</html>

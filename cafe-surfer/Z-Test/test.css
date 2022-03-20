@@ -1,0 +1,7 @@
+@import url(../css/reset.css);
+
+#body-wrapper{display: block;}
+
+#header{position: fixed; top: 0;}
+#bod{position: absolute; top: 40px;}
+#footer{margin-top: 100px;}
